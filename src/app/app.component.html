@@ -1,1 +1,19 @@
-<app-template> </app-template>
+<mat-drawer-container
+  mode="over"
+  [hasBackdrop]="true"
+  class="example-container"
+  autosize
+>
+  <mat-drawer
+    mode="over"
+    #drawer
+    position="end"
+    class="example-sidenav"
+    mode="side"
+  >
+    <ng-container *ngIf="templateDicas">
+      <ng-container *ngTemplateOutlet="templateDicas"></ng-container>
+    </ng-container>
+  </mat-drawer>
+  <app-template> </app-template>
+</mat-drawer-container>

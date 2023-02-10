@@ -27,12 +27,12 @@ export class NovaAdmissaoCooperadoComponent {
     private _cpf: CpfService,
   ) {
     this._templateService.atualizaTitulo('Nova Admissão Cooperado');
-
     this._templateService.atualizaBreadCrumb([
       'Cadastro',
       'Admissão do Cooperado',
       'Nova Admissão de Cooperado',
     ]);
+    this._cpf.reset();
   }
 
   ngOnInit(): void {

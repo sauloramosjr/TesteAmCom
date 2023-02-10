@@ -88,7 +88,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .border-radius {
@@ -125,4 +125,7 @@ app-nova-admissao-cooperado {
   background-color: none !important;
   border: 1px solid var(--azulPadrao) !important;
   color: var(--azulPadrao) !important;
+}
+mat-drawer-content {
+  margin: 0 !important;
 }

@@ -9,7 +9,9 @@
     >
       Iniciar nova admissão
     </button>
-    <button mat-raised-button color="padrao-raised">Dicas de admissão</button>
+    <button (click)="dicasEmit()" mat-raised-button color="padrao-raised">
+      Dicas de admissão
+    </button>
   </ng-container>
   <ng-template #senao>
     <button color="padrao" mat-raised-button (click)="backStep()">Back</button>
@@ -23,3 +25,18 @@
     </ng-container>
   </ng-template>
 </div>
+
+<ng-template #dicasRef>
+  <div class="dicas">
+    <h3>Check-list para abertura de conta</h3>
+    <p>
+      Confira algumas dicas que irão lhe ajudar neste atendimento para que a
+      admissão aconteça da melhor forma possível
+    </p>
+    <ol>
+      <li>Conheça seu cooperado</li>
+      <li>Fale sobre a cooperativa</li>
+      <li>Documentos e comprovações necessárias</li>
+    </ol>
+  </div>
+</ng-template>
