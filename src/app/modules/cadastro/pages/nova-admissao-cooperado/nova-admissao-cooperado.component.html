@@ -1,0 +1,100 @@
+<app-stepper
+  [steps]="[step1, step2, step3, step4]"
+  [stepcontrols]="[form]"
+  [titulos]="['Início', 'Documentos', 'Dados Cadastrais', 'Admissão']"
+  [stepAction]="actions$"
+></app-stepper>
+
+<ng-template #step1>
+  <h2>Informe o CPF do futuro cooperado(a)</h2>
+  <small
+    >Se necessário você poderá duplicar uma conta existente e retomar esse
+    cadastro futuramente.
+  </small>
+  <br />
+  <small>Digite apenas números (sem pontos ou traços).</small>
+  <form [formGroup]="form">
+    <br />
+    <mat-label><b>CPF</b></mat-label>
+    <br />
+    <mat-form-field appearance="fill">
+      <input
+        appOnlyNumbers
+        appCpfMask
+        matInput
+        placeholder="000.000.000-00"
+        formControlName="cpf"
+        type="text"
+        alt="cpf"
+        required
+      />
+      <mat-error
+        *ngIf="form.get('cpf')?.touched && form.get('cpf')?.errors?.['required']"
+        >Cpf é um campo obrigatório</mat-error
+      >
+      <mat-error
+        *ngIf="form.get('cpf')?.touched && form.get('cpf')?.errors?.['cpf'] && !(form.get('cpf')?.errors?.['required'])"
+        >Cpf com formato inválido</mat-error
+      >
+    </mat-form-field>
+    <button
+      [disabled]="
+        form.get('cpf')?.errors ||
+        (cpfConsulted$ | async)?.cpf === form.get('cpf')?.value
+      "
+      mat-raised-button
+      color="padrao"
+      class="consult-buttom"
+      (click)="consultarCpf()"
+    >
+      <ng-container *ngIf="loading; else consulta">
+        <mat-spinner color="white" [diameter]="20"></mat-spinner>
+      </ng-container>
+      <ng-template #consulta>
+        <span> consultar por cpf </span>
+      </ng-template>
+    </button>
+  </form>
+  <div>
+    <ng-container *ngIf="cpfConsulted$ | async">
+      <mat-card>
+        <mat-card-content class="situacao">
+          <h3><b>Situação cadastral do CPF</b></h3>
+          <small>Consulta na receita federal</small>
+          <div class="situacao--item">
+            <mat-icon>person</mat-icon>
+            <div class="situacao--item--content">
+              <small>Nome</small>
+              <p>{{ (cpfConsulted$ | async).nome }}</p>
+            </div>
+          </div>
+          <div class="situacao--item">
+            <mat-icon
+              [ngClass]="{
+                check: (cpfConsulted$ | async).status === 'regular'
+              }"
+              class="material-icons-outlined"
+              >check_circle</mat-icon
+            >
+            <div class="situacao--item--content">
+              <small>Situação cadastral</small>
+              <p>{{ (cpfConsulted$ | async).status }}</p>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </div>
+</ng-template>
+<ng-template #step2> </ng-template>
+<ng-template #step3> </ng-template>
+<ng-template #step4>
+  <p>You are now done.</p>
+</ng-template>
+
+<app-admissao-footer
+  [form]="form"
+  [cpfConsulted]="cpfConsulted$"
+  [actions]="actions$"
+  [steps]="4"
+></app-admissao-footer>

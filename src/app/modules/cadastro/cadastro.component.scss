@@ -1,0 +1,7 @@
+div {
+  max-height: calc(100% - 100px);
+  height: calc(100% - 100px);
+  background: var(--fundo);
+  padding-top: 20px;
+  overflow-y: auto;
+}

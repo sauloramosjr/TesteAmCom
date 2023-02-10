@@ -1,0 +1,30 @@
+<header class="header">
+  <div mat-icon-button class="header__titulo">
+    <ng-container *ngIf="(titulo$ | async);else skeleton">
+      <h1>{{(titulo$ | async) | uppercase }}</h1>
+    </ng-container>
+    <ng-template #skeleton>
+      <app-skeleton [h1]="true"></app-skeleton>
+    </ng-template>
+    <ng-container *ngIf="(breadcrumbs$ | async)?.length;else skeletonSmall">
+      <app-breadcrumb [breadcrumbs]="(breadcrumbs$ | async) || []" />
+    </ng-container>
+    <ng-template #skeletonSmall>
+      <app-skeleton [small]="true"></app-skeleton>
+    </ng-template>
+
+  </div>
+  <div class="header__menu">
+    <button class="notificacoes" matTooltip="você tem 15 notificações">
+      <mat-icon class="material-icons-outlined" matBadge="15" matBadgeSize="small" >
+        notifications
+      </mat-icon>
+    </button>
+    <button mat-stroked-button class="viacredi">VIACREDI</button>
+      <app-avatar classe="border" [matMenuTriggerFor]="menu" class="material-icons"></app-avatar>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>{{nome$ |async}}</button>
+        <button mat-menu-item>Outras opções</button>
+      </mat-menu>
+  </div>
+</header>

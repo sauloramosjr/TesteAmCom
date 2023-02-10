@@ -1,0 +1,128 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --azulPadrao: #165c7d;
+  --fundo: #e7eef1;
+}
+
+app-stepper {
+  background-color: var(--fundo) !important;
+
+  .mat-horizontal-stepper-wrapper {
+    background-color: var(--fundo) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    .mat-horizontal-content-container {
+      align-self: baseline !important;
+    }
+    .mat-horizontal-stepper-header-container {
+      max-width: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      .mat-step-header {
+        flex-direction: column;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 640px;
+        height: auto;
+        position: relative;
+        .mat-step-icon-content {
+          display: none;
+        }
+        .mat-step-icon-selected {
+          align-self: center;
+          border: 2px solid var(--azulPadrao) !important;
+          background: white !important;
+          width: 8px;
+          height: 8px;
+          margin-right: 0 !important;
+          z-index: 1;
+        }
+        .mat-step-icon-state-edit {
+          align-self: center;
+          border: 2px solid blue !important;
+          background: white !important;
+          width: 8px;
+          height: 8px;
+          margin-right: 0 !important;
+          z-index: 1;
+        }
+        .mat-step-icon {
+          align-self: center;
+          border: 2px solid silver;
+          background: silver;
+          width: 8px;
+          height: 8px;
+          margin-right: 0 !important;
+          z-index: 1;
+        }
+
+        .mat-step-label {
+          text-align: center;
+          font-size: 10px;
+        }
+      }
+      .mat-stepper-horizontal-line {
+        position: absolute;
+        top: 6px;
+        width: 290px;
+        border-top-width: 2px;
+      }
+    }
+  }
+}
+.notificacoes {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  .mat-badge-content {
+    background: red !important;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.border-radius {
+  &--50¢ {
+    border-radius: 40% !important;
+  }
+  &--15 {
+    border-radius: 15px !important;
+  }
+}
+
+app-nova-admissao-cooperado {
+  .mat-mdc-card {
+    width: 230px !important;
+  }
+}
+.mat-padrao:not([disabled]) {
+  background-color: var(--azulPadrao) !important;
+  color: white !important;
+}
+.mat-white:not([disabled]) {
+  circle {
+    stroke: white !important;
+  }
+}
+.mat-buttom-success:not([disabled]) {
+  background-color: green !important;
+  color: white !important;
+}
+.mat-success:not([disabled]) {
+  color: green !important;
+}
+.mat-padrao-raised:not([disabled]) {
+  background-color: none !important;
+  border: 1px solid var(--azulPadrao) !important;
+  color: var(--azulPadrao) !important;
+}

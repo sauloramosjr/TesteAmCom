@@ -1,0 +1,25 @@
+<mat-stepper [linear]="true" #stepper>
+  <ng-container *ngFor="let step of steps; let i = index">
+    <ng-container *ngIf="stepControls[i]; else noControl">
+      <mat-step [stepControl]="stepControls[i]">
+        <ng-container *ngIf="titulos[i]">
+          <ng-template matStepLabel>{{ titulos[i] }}</ng-template>
+        </ng-container>
+        <ng-container *ngIf="step">
+          <ng-content *ngTemplateOutlet="step"></ng-content>
+        </ng-container>
+      </mat-step>
+    </ng-container>
+
+    <ng-template #noControl>
+      <mat-step>
+        <ng-container *ngIf="titulos[i]">
+          <ng-template matStepLabel>{{ titulos[i] }}</ng-template>
+        </ng-container>
+        <ng-container *ngIf="step">
+          <ng-content *ngTemplateOutlet="step"></ng-content>
+        </ng-container>
+      </mat-step>
+    </ng-template>
+  </ng-container>
+</mat-stepper>

@@ -1,0 +1,35 @@
+h3,
+b {
+  margin: 0;
+}
+small {
+  color: grey;
+}
+.mat-icon {
+  color: silver !important;
+
+  &.check {
+    color: green !important;
+  }
+}
+.consult-buttom {
+  margin-left: 10px;
+  border-radius: 0 !important;
+  width: 180px;
+}
+.situacao {
+  &--item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    &--content {
+      padding-left: 10px;
+      small {
+        font-size: 11px;
+      }
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}

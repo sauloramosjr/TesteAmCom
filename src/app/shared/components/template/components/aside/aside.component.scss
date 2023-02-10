@@ -1,0 +1,15 @@
+aside {
+  overflow: hidden;
+  width: 75px;
+  background: var(--azulPadrao);
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+nav {
+  margin: 0;
+  padding: 0;
+  menu {
+    margin: 0;
+    padding: 0;
+  }
+}

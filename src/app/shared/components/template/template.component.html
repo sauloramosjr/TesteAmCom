@@ -1,0 +1,17 @@
+
+<mat-drawer-container class="drawer-container" hasBackdrop="true">
+  <mat-drawer #drawer mode="over">
+    <ng-container *ngIf="getTemplateSideNav()">
+      <ng-content #name *ngTemplateOutlet="getTemplateSideNav()"></ng-content>
+    </ng-container>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="container">
+      <app-header />
+      <app-aside class="aside" />
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

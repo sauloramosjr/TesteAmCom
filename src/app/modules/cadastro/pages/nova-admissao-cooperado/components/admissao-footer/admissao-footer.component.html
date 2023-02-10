@@ -1,0 +1,25 @@
+<div class="footer">
+  <ng-container *ngIf="stepAtual === 1; else senao">
+    <button
+      *ngIf="cpfConsulted$ | async"
+      color="padrao"
+      mat-raised-button
+      class="next"
+      (click)="nextStep()"
+    >
+      Iniciar nova admissão
+    </button>
+    <button mat-raised-button color="padrao-raised">Dicas de admissão</button>
+  </ng-container>
+  <ng-template #senao>
+    <button color="padrao" mat-raised-button (click)="backStep()">Back</button>
+    <ng-container *ngIf="!(stepAtual === steps)">
+      <button color="padrao" mat-raised-button (click)="nextStep()">
+        Next
+      </button>
+    </ng-container>
+    <ng-container *ngIf="stepAtual === steps">
+      <button mat-button (click)="resetStep()">Reset</button>
+    </ng-container>
+  </ng-template>
+</div>

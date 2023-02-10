@@ -1,0 +1,17 @@
+.footer {
+  width: calc(100% - 95px);
+  right: 0;
+  position: fixed;
+  background: white;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+}
+.next {
+  margin-right: 15px;
+}
+
+button {
+  margin-right: 15px;
+}
