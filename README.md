@@ -39,5 +39,5 @@ ng serve
 - TypeScript
 ## Autor
 
-- [@Heremitta](https://www.github.com/Heremitta)
+- [@sauloramosjr](https://www.github.com/sauloramosjr)
 
