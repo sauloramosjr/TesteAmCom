@@ -10,7 +10,6 @@ Este projeto foi desenvolvido para a empresa Amcom com o objetivo de fornecer um
 - Clone este repositório para sua máquina local
 ```
 git clone https://github.com/sauloramosjr/TesteAmCom.git
-
 ```
 - Acesse o diretório do projeto
 ```
